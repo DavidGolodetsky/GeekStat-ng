@@ -2,11 +2,12 @@
   <mat-card class="card" *ngFor="let game of games">
     <mat-card-header>
       <mat-card-title>{{ game.name }}</mat-card-title>
-      <mat-card-subtitle>My BGG rating: {{ game.rating }}</mat-card-subtitle>
     </mat-card-header>
     <img class="image" mat-card-image [src]="game.image" [alt]="game.name" />
     <mat-card-actions>
-      <button mat-button>Details</button>
+      <a [routerLink]="game.gameId">
+        <button mat-button>Details</button>
+      </a>
     </mat-card-actions>
   </mat-card>
 </div>

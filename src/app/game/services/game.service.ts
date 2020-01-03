@@ -12,4 +12,10 @@ export class GameService {
   getGames() {
     return of(games);
   }
+
+  getGame(id: number) {
+    return of(
+      games.find(game => +game.gameId === +id)
+    )
+  }
 }

@@ -1,0 +1,50 @@
+<div>
+  <img class="poster" [src]="game.image" alt="game.name" />
+  <h1>{{ game.name }}</h1>
+  <p>Rating on BGG: {{ game.averageRating }}</p>
+  <p>Published at: {{ game.yearPublished }}</p>
+  <div class="table-container mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td class="cell" mat-cell *matCellDef="let element">
+          {{ element.position }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="david">
+        <th mat-header-cell *matHeaderCellDef>David</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          class="cell"
+          [class.win]="element.david ? 1 : 0"
+        >
+          {{ element.david ? "Win" : "Lose" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="bunya">
+        <th mat-header-cell *matHeaderCellDef>Bunya</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          class="cell"
+          [class.win]="element.bunya ? 1 : 0"
+        >
+          {{ element.bunya ? "Win" : "Lose" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell class="cell" *matCellDef="let element">
+          {{ element.date }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>
