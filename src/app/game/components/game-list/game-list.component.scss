@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 400px;
+  margin: 10px;
+  background-color: #f2e6ff;
+}
+
+.image {
+  height: 300px;
+  object-fit: cover;
+}

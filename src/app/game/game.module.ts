@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameListComponent } from './components/game-list/game-list.component';
 import { GameRoutingModule } from './game.routing.module';
+import { MaterialModule } from '../material';
 
 
 
@@ -9,7 +10,8 @@ import { GameRoutingModule } from './game.routing.module';
   declarations: [GameListComponent],
   imports: [
     CommonModule,
-    GameRoutingModule
+    GameRoutingModule,
+    MaterialModule
   ]
 })
 export class GameModule { }
