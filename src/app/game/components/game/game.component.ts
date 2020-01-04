@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Game } from '../../models/game.model';
-import { StarRealmsData } from '../../models/game.model';
 
 @Component({
   selector: 'app-game',
@@ -11,10 +10,6 @@ import { StarRealmsData } from '../../models/game.model';
 export class GameComponent implements OnInit {
 
   @Input() game: Game;
-
-  displayedColumns = ['position', 'david', 'bunya', 'date'];
-  dataSource = StarRealmsData;
-
 
   constructor(private location: Location) { }
 

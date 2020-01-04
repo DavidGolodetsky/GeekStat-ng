@@ -1,4 +1,4 @@
-<div class="wrapper" *ngIf="games$ | async as games">
+<div class="wrapper" *ngIf="games$ | async as games; else noData">
   <mat-card class="card" *ngFor="let game of games">
     <mat-card-header>
       <mat-card-title>{{ game.name }}</mat-card-title>
@@ -11,3 +11,9 @@
     </mat-card-actions>
   </mat-card>
 </div>
+
+<ng-template #noData>
+  <div class="spinner-wrapper">
+    <mat-spinner [diameter]="40" class="main-spinner"></mat-spinner>
+  </div>
+</ng-template>

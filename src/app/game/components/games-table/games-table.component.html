@@ -1,0 +1,51 @@
+<div class="table-container mat-elevation-z8">
+  <!-- TODO: fetch game name -->
+  <!-- <h3>{{ game.name }} Matches</h3> -->
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
+      <td mat-cell class="cell" *matCellDef="let row">{{ row.position }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="david">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>David</th>
+      <td
+        mat-cell
+        class="cell"
+        [class.win]="row.david ? 1 : 0"
+        *matCellDef="let row"
+      >
+        {{ row.david ? "Win" : "Lose" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bunya">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Bunya</th>
+      <td
+        mat-cell
+        class="cell"
+        [class.win]="row.bunya ? 1 : 0"
+        *matCellDef="let row"
+      >
+        {{ row.bunya ? "Win" : "Lose" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+      <td mat-cell class="cell" *matCellDef="let row">{{ row.date }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    [length]="dataSource?.data.length"
+    [pageIndex]="0"
+    [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]"
+  >
+  </mat-paginator>
+</div>

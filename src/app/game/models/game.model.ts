@@ -1,5 +1,3 @@
-// TODO: fetch from here and filter from OWN list http://bgg-json.azurewebsites.net/collection/davidgol
-
 export interface Game {
     gameId: number;
     name: string;
@@ -12,14 +10,14 @@ export interface Game {
 }
 
 
-export interface GameData {
+export interface GamesTableItem {
     david: boolean;
     position: number;
     bunya: boolean;
     date: string;
 }
 
-export const StarRealmsData: GameData[] = [
+export const STAR_REALMS: GamesTableItem[] = [
     { position: 1, david: false, bunya: true, date: '03.01.20' },
     { position: 2, david: true, bunya: false, date: '03.01.20' },
 ];

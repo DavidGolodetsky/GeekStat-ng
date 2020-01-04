@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Game } from '../models/game.model';
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class GameService {
 
   getGames() {
     const path = `${this.ROOT_URL}/collection/${this.nickname}`
-    return this.http.get<Game[]>(path)
+    return this.http.get<Game[]>(path).pipe(map(games => games.filter(game => game.owned)))
   }
 
   getGame(id: number) {
