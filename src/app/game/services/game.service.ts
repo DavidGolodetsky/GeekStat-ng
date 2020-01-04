@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Game } from '../models/game.model';
+import { Game, ALL_MATCHES, Match, MatchesTables } from '../models/game.model';
 import { map } from "rxjs/operators";
 
 @Injectable({
@@ -12,6 +12,8 @@ export class GameService {
 
   // TODO: recieve from user
   nickname: string = 'davidgol'
+
+  gameMatches
 
   gameId: number;
 
@@ -26,4 +28,5 @@ export class GameService {
     const path = `${this.ROOT_URL}/thing/${id}`
     return this.http.get<Game>(path)
   }
+
 }

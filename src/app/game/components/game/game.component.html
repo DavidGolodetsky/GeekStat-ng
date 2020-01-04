@@ -11,7 +11,7 @@
   <p>Rating on BGG: {{ game.averageRating }}</p>
   <p>Published at: {{ game.yearPublished }}</p>
   <p *ngIf="game.isExpansion">Expansion</p>
-  <p>{{ game.description }}</p>
+  <!-- TODO:hide if no data -->
   <app-games-table [gameId]="game.gameId"></app-games-table>
 </div>
 

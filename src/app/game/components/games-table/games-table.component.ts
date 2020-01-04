@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { GamesTableDataSource } from './games-table-datasource';
-import { GamesTableItem } from '../../models/game.model'
+import { Match } from '../../models/game.model'
 
 @Component({
   selector: 'app-games-table',
@@ -11,18 +11,24 @@ import { GamesTableItem } from '../../models/game.model'
   styleUrls: ['./games-table.component.scss']
 })
 export class GamesTableComponent implements AfterViewInit, OnInit {
-  // TODO: fetch table data per game
-  @Input() gameId: number;
+  @Input() public gameId: number;
 
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
-  @ViewChild(MatTable, { static: false }) table: MatTable<GamesTableItem>;
+  @ViewChild(MatTable, { static: false }) table: MatTable<Match>;
   dataSource: GamesTableDataSource;
+  isMatches$: boolean;
+
+  constructor() {
+
+  }
 
   displayedColumns = ['position', 'david', 'bunya', 'date'];
 
+
   ngOnInit() {
-    this.dataSource = new GamesTableDataSource();
+    this.dataSource = new GamesTableDataSource(this.gameId);
+    this.dataSource.game.matches ? this.isMatches$ = true : '';
   }
 
   ngAfterViewInit() {
