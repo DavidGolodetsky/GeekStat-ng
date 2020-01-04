@@ -1,3 +1,8 @@
+<div class="expansions-toggle">
+  <mat-slide-toggle [checked]="true" (change)="expansionsToggled($event)"
+    >Expansions</mat-slide-toggle
+  >
+</div>
 <div class="wrapper" *ngIf="games$ | async as games; else noData">
   <mat-card class="card" *ngFor="let game of games">
     <mat-card-header>
