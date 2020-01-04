@@ -1,9 +1,19 @@
-<div>
+<div *ngIf="game">
+  <mat-icon
+    class="back-btn"
+    aria-hidden="false"
+    aria-label="Back icon"
+    (click)="goBack()"
+    >arrow_back</mat-icon
+  >
   <img class="poster" [src]="game.image" alt="game.name" />
   <h1>{{ game.name }}</h1>
   <p>Rating on BGG: {{ game.averageRating }}</p>
   <p>Published at: {{ game.yearPublished }}</p>
+  <p *ngIf="game.isExpansion">Expansion</p>
+  <p>{{ game.description }}</p>
   <div class="table-container mat-elevation-z8">
+    <h3>Games</h3>
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef>No.</th>

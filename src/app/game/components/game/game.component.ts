@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common';
 import { Game } from '../../models/game.model';
 import { StarRealmsData } from '../../models/game.model';
 
@@ -15,9 +16,13 @@ export class GameComponent implements OnInit {
   dataSource = StarRealmsData;
 
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

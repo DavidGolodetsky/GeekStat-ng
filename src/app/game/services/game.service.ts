@@ -1,21 +1,28 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
-import { games } from '../models/game.model';
+import { HttpClient } from '@angular/common/http';
+import { Game } from '../models/game.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
 
-  constructor() { }
+  private ROOT_URL = 'http://bgg-json.azurewebsites.net/'
+
+  // TODO: recieve from user
+  nickname: string = 'davidgol'
+
+  gameId: number;
+
+  constructor(private http: HttpClient) { }
 
   getGames() {
-    return of(games);
+    const path = `${this.ROOT_URL}/collection/${this.nickname}`
+    return this.http.get<Game[]>(path)
   }
 
   getGame(id: number) {
-    return of(
-      games.find(game => +game.gameId === +id)
-    )
+    const path = `${this.ROOT_URL}/thing/${id}`
+    return this.http.get<Game>(path)
   }
 }
