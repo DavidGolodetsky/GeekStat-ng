@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 .burger {
   padding: 0 14px;
   cursor: pointer;
@@ -5,4 +7,8 @@
 
 .toolbar {
   margin-bottom: 40px;
+}
+
+.title {
+  color: $accent;
 }

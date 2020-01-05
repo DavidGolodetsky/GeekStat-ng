@@ -1,15 +1,17 @@
+@import "../../../../variables.scss";
+
 .full-width-table {
   width: 100%;
 }
 
 .table-container {
   overflow: auto;
-  margin: 40px 0;
+  margin: 40px 0 20px;
 }
 
 .win {
-  background-color: green;
-  color: white;
+  background-color: $accent;
+  color: #fff;
 }
 
 .cell {

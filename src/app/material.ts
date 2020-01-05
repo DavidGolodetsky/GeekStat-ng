@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         MatButtonModule,
         MatTableModule,
         MatProgressSpinnerModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatRippleModule,
     ],
     exports: [
         MatToolbarModule,
@@ -28,7 +30,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         MatButtonModule,
         MatTableModule,
         MatProgressSpinnerModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatRippleModule,
     ]
 })
 export class MaterialModule { }

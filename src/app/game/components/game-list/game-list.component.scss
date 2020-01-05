@@ -1,3 +1,5 @@
+@import "../../../../variables.scss";
+
 .wrapper {
   display: flex;
   justify-content: space-around;
@@ -7,7 +9,8 @@
 .card {
   width: 400px;
   margin: 10px;
-  background-color: #f2e6ff;
+  background-color: $secondary;
+  margin-bottom: 40px;
 }
 
 .image {
@@ -20,4 +23,8 @@
   justify-content: flex-end;
   margin-right: 30px;
   margin-bottom: 30px;
+}
+
+.card-title {
+  color: $primary;
 }

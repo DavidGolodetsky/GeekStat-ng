@@ -6,13 +6,17 @@
 <div class="wrapper" *ngIf="games$ | async as games; else noData">
   <mat-card class="card" *ngFor="let game of games">
     <mat-card-header>
-      <mat-card-title>{{ game.name }}</mat-card-title>
+      <mat-card-title class="card-title">{{ game.name }}</mat-card-title>
     </mat-card-header>
     <img class="image" mat-card-image [src]="game.image" [alt]="game.name" />
     <mat-card-actions>
-      <a [routerLink]="game.gameId">
-        <button mat-button>Details</button>
-      </a>
+      <div class="btn-wrapper">
+        <a [routerLink]="game.gameId">
+          <button mat-raised-button ripple color="accent" class="btn">
+            Details
+          </button>
+        </a>
+      </div>
     </mat-card-actions>
   </mat-card>
 </div>

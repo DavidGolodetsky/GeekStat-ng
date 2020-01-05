@@ -1,4 +1,5 @@
 @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "./variables.scss";
 
 html,
 body,
@@ -33,8 +34,9 @@ li {
 }
 
 .back-btn {
-  color: #673ab7;
+  color: $primary;
   cursor: pointer;
+  font-size: 40px;
 }
 
 .spinner-wrapper {
@@ -43,4 +45,15 @@ li {
   align-items: center;
   height: calc(100vh - 64px);
   width: 100%;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  color: $primary !important;
 }
