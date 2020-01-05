@@ -1,1 +1,20 @@
 @import "../../../../variables.scss";
+
+.mat-dialog-title {
+  color: $primary;
+  margin-bottom: 40px;
+}
+
+.mat-radio-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mat-dialog-content {
+  padding: 24px;
+  max-height: unset;
+}
+
+.mat-dialog-actions {
+  justify-content: flex-end;
+}

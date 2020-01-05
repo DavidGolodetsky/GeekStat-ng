@@ -10,7 +10,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
     imports: [
@@ -24,7 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         MatSlideToggleModule,
         MatRippleModule,
         MatDialogModule,
-        MatFormFieldModule,
+        MatRadioModule,
     ],
     exports: [
         MatToolbarModule,
@@ -37,7 +37,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         MatSlideToggleModule,
         MatRippleModule,
         MatDialogModule,
-        MatFormFieldModule,
+        MatRadioModule,
     ]
 })
 export class MaterialModule { }

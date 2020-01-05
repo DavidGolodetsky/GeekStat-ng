@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Game, ALL_MATCHES, Match, MatchesTables } from '../models/game.model';
+import { Game } from '../models/game.model';
 import { map } from "rxjs/operators";
 
 @Injectable({

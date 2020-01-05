@@ -1,12 +1,30 @@
-<h1 mat-dialog-title>Add new match</h1>
+<h1 mat-dialog-title>And the winner is...</h1>
 <div mat-dialog-content>
-  <!-- <mat-form-field>
-    <input matInput [(ngModel)]="data.name" />
-  </mat-form-field> -->
+  <mat-radio-group aria-label="Select an option" [(ngModel)]="winner">
+    <mat-radio-button value="david">David</mat-radio-button>
+    <mat-radio-button value="lyuba">Lyuba</mat-radio-button>
+  </mat-radio-group>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>
+  <button
+    mat-raised-button
+    ripple
+    color="accent"
+    class="btn"
+    cdkFocusInitial
+    (click)="onCancel()"
+  >
+    Cancel
+  </button>
+  <button
+    mat-raised-button
+    ripple
+    color="accent"
+    class="btn"
+    [disabled]="!winner"
+    [mat-dialog-close]
+    (click)="addMatch()"
+  >
     Add
   </button>
 </div>

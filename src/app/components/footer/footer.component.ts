@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavbarService } from '../nav-bar/services/navbar.service';
 
 @Component({
@@ -6,14 +6,10 @@ import { NavbarService } from '../nav-bar/services/navbar.service';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
-
+export class FooterComponent {
 
   title$ = this.navbarService.title;
 
   constructor(private navbarService: NavbarService) { }
-
-  ngOnInit() {
-  }
 
 }

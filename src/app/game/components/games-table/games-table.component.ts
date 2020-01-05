@@ -23,7 +23,7 @@ export class GamesTableComponent implements AfterViewInit, OnInit {
 
   }
 
-  displayedColumns = ['position', 'david', 'bunya', 'date'];
+  displayedColumns = ['david', 'lyuba', 'date'];
 
 
   ngOnInit() {

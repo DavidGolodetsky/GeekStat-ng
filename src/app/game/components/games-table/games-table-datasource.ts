@@ -66,9 +66,8 @@ export class GamesTableDataSource extends DataSource<Match> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'position': return compare(a.position, b.position, isAsc);
         case 'david': return compare(+a.david, +b.david, isAsc);
-        case 'bunya': return compare(+a.bunya, +b.bunya, isAsc);
+        case 'lyuba': return compare(+a.lyuba, +b.lyuba, isAsc);
         case 'date': return compare(+a.date, +b.date, isAsc);
         default: return 0;
       }
