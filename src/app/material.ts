@@ -9,6 +9,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRippleModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
     imports: [
@@ -21,6 +23,8 @@ import { MatRippleModule } from '@angular/material/core';
         MatProgressSpinnerModule,
         MatSlideToggleModule,
         MatRippleModule,
+        MatDialogModule,
+        MatFormFieldModule,
     ],
     exports: [
         MatToolbarModule,
@@ -32,6 +36,8 @@ import { MatRippleModule } from '@angular/material/core';
         MatProgressSpinnerModule,
         MatSlideToggleModule,
         MatRippleModule,
+        MatDialogModule,
+        MatFormFieldModule,
     ]
 })
 export class MaterialModule { }

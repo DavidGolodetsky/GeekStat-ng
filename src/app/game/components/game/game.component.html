@@ -14,7 +14,13 @@
   <!-- TODO:hide if no data -->
   <app-games-table [gameId]="game.gameId"></app-games-table>
   <div class="btn-wrapper">
-    <button mat-raised-button ripple color="accent" class="btn">
+    <button
+      mat-raised-button
+      ripple
+      color="accent"
+      class="btn"
+      (click)="openDialog()"
+    >
       Add new match
     </button>
   </div>
