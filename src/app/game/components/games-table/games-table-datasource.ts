@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { Match, ALL_MATCHES } from '../../models/game.model'
 
+
 /**
  * Data source for the GamesTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
@@ -16,9 +17,10 @@ export class GamesTableDataSource extends DataSource<Match> {
   paginator: MatPaginator;
   sort: MatSort;
 
-  constructor(private gameId: number) {
+  constructor(private gameId: number, ) {
     super();
   }
+
 
   /**
    * Connect this data source to the table. The table will only update when
