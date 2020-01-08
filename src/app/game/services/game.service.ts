@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { Game } from '../models/game.model';
+import { HttpClient } from '@angular/common/http'
+import { Game, MatchesTable } from '../models/game.model';
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
 
@@ -10,7 +9,8 @@ import { Observable } from "rxjs";
 })
 export class GameService {
 
-  private ROOT_URL = 'http://bgg-json.azurewebsites.net/'
+  private BGG_URL = 'http://bgg-json.azurewebsites.net/';
+  private LOCAL_URL = 'http://localhost:3000/';
 
   // TODO: recieve from user
   nickname: string = 'davidgol'
@@ -19,20 +19,23 @@ export class GameService {
 
   gameId: number;
 
-  constructor(
-    private http: HttpClient,
-    public db: AngularFireDatabase) {
-    this.gameMatches = db.list('/').valueChanges()
+  constructor(private http: HttpClient) {
   }
 
+  // TODO: backup it to db.json in case if api fall
   getGames() {
-    const path = `${this.ROOT_URL}/collection/${this.nickname}`
+    const path = `${this.BGG_URL}/collection/${this.nickname}`
     return this.http.get<Game[]>(path).pipe(map(games => games.filter(game => game.owned)))
   }
 
   getGame(id: number) {
-    const path = `${this.ROOT_URL}/thing/${id}`
+    const path = `${this.BGG_URL}/thing/${id}`
     return this.http.get<Game>(path)
+  }
+
+  getMatches(id: number) {
+    const path = `${this.LOCAL_URL}/matches/${id}`
+    return this.http.get<MatchesTable>(path)
   }
 
 }
