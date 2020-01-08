@@ -9,7 +9,7 @@ export interface Game {
 }
 
 
-export interface MatchesTable {
+export interface MatchesTables {
     gameId: number;
     matches: Match[];
 }
@@ -20,7 +20,7 @@ export interface Match {
     date: string;
 }
 
-export const ALL_MATCHES: MatchesTable[] = [
+export const ALL_MATCHES: MatchesTables[] = [
     {
         gameId: 173346,
         matches: [
@@ -78,11 +78,6 @@ export const ALL_MATCHES: MatchesTable[] = [
             { david: true, lyuba: false, date: '05/01/2020' },
             { david: false, lyuba: true, date: '06/01/2020' },
             { david: false, lyuba: true, date: '06/01/2020' },
-            { david: false, lyuba: true, date: '07/01/2020' },
-            { david: false, lyuba: true, date: '07/01/2020' },
-            { david: true, lyuba: false, date: '07/01/2020' },
-            { david: true, lyuba: false, date: '07/01/2020' },
-            { david: true, lyuba: false, date: '07/01/2020' },
         ]
     },
     {

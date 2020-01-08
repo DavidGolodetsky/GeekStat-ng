@@ -3,10 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { GamesTableDataSource } from './games-table-datasource';
-import { Match, MatchesTable } from '../../models/game.model'
-import { GameService } from '../../services/game.service';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Match } from '../../models/game.model'
 
 @Component({
   selector: 'app-games-table',
@@ -20,27 +17,19 @@ export class GamesTableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatTable, { static: false }) table: MatTable<Match>;
   dataSource: GamesTableDataSource;
+  isMatches$: boolean;
 
-  constructor(private gameService: GameService) { }
+  constructor() {
+
+  }
 
   displayedColumns = ['david', 'lyuba', 'date'];
 
-  // arr;
-
 
   ngOnInit() {
-    const matches: Observable<MatchesTable> = this.gameService.getMatches(this.gameId);
-    const filtered = matches.pipe(
-      map(matches => matches.matches)
-    )
-    // TODO: figure out how to pass observable to a table or covert it to array
-    // filtered.subscribe((response: any) => {      
-    //   this.arr.push(...response.data)
-    // })
     this.dataSource = new GamesTableDataSource(this.gameId);
+    this.dataSource.game.matches ? this.isMatches$ = true : '';
   }
-
-
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
