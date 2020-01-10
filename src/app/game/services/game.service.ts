@@ -4,6 +4,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Game } from '../models/game.model';
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
+import { MatTableDataSource } from '@angular/material/table';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,11 @@ export class GameService {
   // TODO: recieve from user
   nickname: string = 'davidgol'
 
-  gameMatches: Observable<any[]>
-
   gameId: number;
 
   constructor(
-    private http: HttpClient,
-    public db: AngularFireDatabase) {
-    this.gameMatches = db.list('/').valueChanges()
+    private http: HttpClient) {
+
   }
 
   getGames() {

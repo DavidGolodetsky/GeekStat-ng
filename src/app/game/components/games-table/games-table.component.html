@@ -1,45 +1,19 @@
-<div class="table-container mat-elevation-z8">
+<div class="table-container mat-elevation-z8" *ngIf="games$ | async as games">
   <p class="table-title">Played matches</p>
-  <table mat-table class="full-width-table" matSort aria-label="Elements">
-    <ng-container matColumnDef="david">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>David</th>
-      <td
-        mat-cell
-        class="cell"
-        [class.win]="row.david ? 1 : 0"
-        *matCellDef="let row"
-      >
-        {{ row.david ? "Win" : "Lose" }}
+  <table class="full-width-table">
+    <tr>
+      <th>David</th>
+      <th>Lyuba</th>
+      <th>Date</th>
+    </tr>
+    <tr *ngFor="let game of games">
+      <td class="cell" [class.win]="game.david ? 1 : 0">
+        {{ game.david ? "Win" : "Lose" }}
       </td>
-    </ng-container>
-
-    <ng-container matColumnDef="lyuba">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Lyuba</th>
-      <td
-        mat-cell
-        class="cell"
-        [class.win]="row.lyuba ? 1 : 0"
-        *matCellDef="let row"
-      >
-        {{ row.lyuba ? "Win" : "Lose" }}
+      <td class="cell" [class.win]="game.lyuba ? 1 : 0">
+        {{ game.lyuba ? "Win" : "Lose" }}
       </td>
-    </ng-container>
-
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
-      <td mat-cell class="cell" *matCellDef="let row">{{ row.date }}</td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <td class="cell">{{ game.date }}</td>
+    </tr>
   </table>
-
-  <mat-paginator
-    #paginator
-    [length]="dataSource?.data.length"
-    [pageIndex]="0"
-    [pageSize]="50"
-    [pageSizeOptions]="[25, 50, 100, 250]"
-  >
-  </mat-paginator>
 </div>
