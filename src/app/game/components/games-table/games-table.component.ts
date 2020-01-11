@@ -17,7 +17,7 @@ export class GamesTableComponent {
   }
 
   ngOnInit() {
-    this.games$ = this.db.list(`/${this.gameId}`).valueChanges()
+    this.games$ = this.db.list(`/games/${this.gameId}`).valueChanges()
   }
 
   openDialog(): void {

@@ -57,5 +57,11 @@ export class AddTeamComponent {
     }
   }
 
+  setPlayer(e, player) {
+    const arr = []
+    arr.push({ player: e.target.value })
+    console.log(arr[arr.length - 1])
+  }
+
 
 }

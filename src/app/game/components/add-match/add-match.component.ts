@@ -27,7 +27,7 @@ export class AddMatchComponent {
   }
 
   addMatch() {
-    this.db.list(`/${this.data.gameId}`).push(this.cookMatch())
+    this.db.list(`/games/${this.data.gameId}`).push(this.cookMatch())
   }
 
   cookMatch(): Match {
