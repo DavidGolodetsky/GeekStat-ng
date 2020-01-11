@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class GameService {
 
-  private ROOT_URL = 'http://bgg-json.azurewebsites.net/'
+  private ROOT_URL = 'https://bgg-json.azurewebsites.net/'
 
   // TODO: recieve from user
   nickname: string = 'davidgol'
