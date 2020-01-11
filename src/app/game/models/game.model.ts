@@ -3,6 +3,7 @@ export interface Game {
     name: string;
     image: string;
     bggRating: number;
+    averageRating: number;
     yearPublished: number;
     isExpansion: boolean;
     owned: boolean;
