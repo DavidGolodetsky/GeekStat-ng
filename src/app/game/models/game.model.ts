@@ -24,6 +24,9 @@ export const ALL_MATCHES: MatchesTables[] = [
     {
         gameId: 173346,
         matches: [
+            { david: false, lyuba: true, date: '10/01/2020' },
+            { david: false, lyuba: true, date: '10/01/2020' },
+            { david: true, lyuba: false, date: '10/01/2020' },
         ]
     },
     {

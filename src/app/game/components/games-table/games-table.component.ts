@@ -1,9 +1,7 @@
-import { AfterViewInit, Component, OnInit, ViewChild, Input } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { Match } from '../../models/game.model'
+import { Component, Input } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { MatDialog } from '@angular/material/dialog';
+import { AddMatchComponent } from '../add-match/add-match.component';
 
 @Component({
   selector: 'app-games-table',
@@ -15,11 +13,17 @@ export class GamesTableComponent {
 
   games$
 
-  constructor(public db: AngularFireDatabase) {
+  constructor(public db: AngularFireDatabase, public dialog: MatDialog) {
   }
 
   ngOnInit() {
     this.games$ = this.db.list(`/${this.gameId}`).valueChanges()
   }
 
+  openDialog(): void {
+    this.dialog.open(AddMatchComponent, {
+      minWidth: '450px',
+      data: { gameId: this.gameId }
+    });
+  }
 }

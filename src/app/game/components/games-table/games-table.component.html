@@ -16,4 +16,16 @@
       <td class="cell">{{ game.date }}</td>
     </tr>
   </table>
+
+  <div class="btn-wrapper">
+    <button
+      mat-raised-button
+      ripple
+      color="accent"
+      class="btn"
+      (click)="openDialog()"
+    >
+      Add new match
+    </button>
+  </div>
 </div>

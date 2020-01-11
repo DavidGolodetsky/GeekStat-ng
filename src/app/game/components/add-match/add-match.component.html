@@ -1,9 +1,19 @@
 <h1 mat-dialog-title>And the winner is...</h1>
 <div mat-dialog-content>
   <mat-radio-group aria-label="Select an option" [(ngModel)]="winner">
-    <mat-radio-button value="david">David</mat-radio-button>
-    <mat-radio-button value="lyuba">Lyuba</mat-radio-button>
+    <mat-radio-button class="radio" value="david">David</mat-radio-button>
+    <mat-radio-button class="radio" value="lyuba">Lyuba</mat-radio-button>
   </mat-radio-group>
+  <mat-form-field>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      [(ngModel)]="date"
+      placeholder="Choose a date"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button

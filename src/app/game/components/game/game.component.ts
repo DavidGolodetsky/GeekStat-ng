@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Game } from '../../models/game.model';
 import { MatDialog } from '@angular/material/dialog';
-import { AddMatchComponent } from '../add-match/add-match.component';
+import { AddTeamComponent } from '../add-team/add-team.component';
 
 @Component({
   selector: 'app-game',
@@ -16,7 +16,7 @@ export class GameComponent {
   constructor(private location: Location, public dialog: MatDialog) { }
 
   openDialog(): void {
-    this.dialog.open(AddMatchComponent, {
+    this.dialog.open(AddTeamComponent, {
       minWidth: '450px',
       data: { gameId: this.game.gameId }
     });

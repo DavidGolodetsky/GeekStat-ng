@@ -11,6 +11,7 @@ import { MaterialModule } from './material';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MAT_DATE_LOCALE } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { FooterComponent } from './components/footer/footer.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'uk-UA' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

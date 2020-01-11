@@ -12,11 +12,12 @@ import { GameDetailsComponent } from './components/game-details/game-details.com
 import { GameComponent } from './components/game/game.component';
 import { GamesTableComponent } from './components/games-table/games-table.component';
 import { AddMatchComponent } from './components/add-match/add-match.component';
+import { AddTeamComponent } from './components/add-team/add-team.component';
 
 
 
 @NgModule({
-  declarations: [GameListComponent, GameDetailsComponent, GameComponent, GamesTableComponent, AddMatchComponent],
+  declarations: [GameListComponent, GameDetailsComponent, GameComponent, GamesTableComponent, AddMatchComponent, AddTeamComponent],
   imports: [
     CommonModule,
     GameRoutingModule,
@@ -27,7 +28,8 @@ import { AddMatchComponent } from './components/add-match/add-match.component';
     FormsModule
   ],
   entryComponents: [
-    AddMatchComponent
+    AddMatchComponent,
+    AddTeamComponent
   ],
 })
 export class GameModule { }
