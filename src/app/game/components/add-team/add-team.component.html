@@ -1,44 +1,50 @@
-<h1 mat-dialog-title>Team up!</h1>
-<div mat-dialog-content>
-  <mat-form-field class="input-centered" class="full-width-field">
-    <mat-label>Number of players</mat-label>
-    <mat-select (selectionChange)="cookPlayers($event)">
-      <mat-option *ngFor="let player of playersNumber" [value]="player">
-        {{ player.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <div *ngIf="players">
-    <div *ngFor="let playerNum of players">
-      <mat-form-field class="full-width-field">
-        <input
-          matInput
-          (input)="setPlayer($event, playerNum)"
-          placeholder="Player #{{ playerNum + 1 }}"
-        />
-      </mat-form-field>
+<div class="dialog-header">
+  <h1 mat-dialog-title>Team up!</h1>
+  <mat-icon
+    class="icon"
+    aria-hidden="false"
+    color="primary"
+    aria-label="Close icon"
+    (click)="onCancel()"
+    >close</mat-icon
+  >
+</div>
+<form [formGroup]="teamForm" (ngSubmit)="addTeam()">
+  <div mat-dialog-content>
+    <mat-form-field class="input-centered" class="full-width-field">
+      <mat-label>Number of players</mat-label>
+      <mat-select
+        formControlName="NumbOfPlayers"
+        (selectionChange)="onPlayersSelected($event)"
+      >
+        <mat-option *ngFor="let player of playersNumber" [value]="player">
+          {{ player.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div *ngIf="players">
+      <div *ngFor="let playerNum of players">
+        <mat-form-field class="full-width-field">
+          <input
+            formControlName="player_{{ playerNum + 1 }}"
+            matInput
+            placeholder="Player #{{ playerNum + 1 }}"
+          />
+        </mat-form-field>
+      </div>
     </div>
   </div>
-</div>
-<div mat-dialog-actions>
-  <button
-    mat-raised-button
-    ripple
-    color="accent"
-    class="btn"
-    cdkFocusInitial
-    (click)="onCancel()"
-  >
-    Cancel
-  </button>
-  <button
-    mat-raised-button
-    ripple
-    color="accent"
-    class="btn"
-    [mat-dialog-close]
-    (click)="addTeam()"
-  >
-    Add
-  </button>
-</div>
+  <div mat-dialog-actions>
+    <button
+      mat-raised-button
+      ripple
+      color="accent"
+      class="btn"
+      [disabled]="!teamForm.valid"
+      [mat-dialog-close]
+      type="submit"
+    >
+      Add
+    </button>
+  </div>
+</form>

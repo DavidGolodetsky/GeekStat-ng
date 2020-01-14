@@ -74,3 +74,12 @@ li {
 .full-width-field {
   width: 100%;
 }
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  cursor: pointer;
+}

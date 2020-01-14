@@ -13,8 +13,7 @@
   <p *ngIf="game.isExpansion">Expansion</p>
   <!-- TODO:hide if no data -->
   <app-games-table [gameId]="game.gameId"></app-games-table>
-  <!-- TODO: add new table functionality -->
-  <!-- <div class="btn-wrapper">
+  <div class="btn-wrapper">
     <button
       mat-raised-button
       ripple
@@ -24,7 +23,7 @@
     >
       Add new team
     </button>
-  </div> -->
+  </div>
 </div>
 
 <ng-template #noData>

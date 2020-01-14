@@ -1,9 +1,9 @@
 <mat-toolbar class="toolbar" color="primary">
   <mat-toolbar-row>
-    <span class="title"> {{ title$ | async }}</span>
+    <span routerLink="/" class="title"> {{ title$ | async }}</span>
     <span class="spacer"></span>
     <mat-icon
-      class="burger"
+      class="icon burger"
       aria-hidden="false"
       aria-label="Menu icon"
       [matMenuTriggerFor]="menu"

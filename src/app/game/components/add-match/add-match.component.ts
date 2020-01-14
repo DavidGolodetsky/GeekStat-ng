@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Match } from '../../models/game.model';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 export interface DialogData {
   gameId: number;
@@ -13,9 +14,10 @@ export interface DialogData {
 })
 export class AddMatchComponent {
 
-
-  winner: string;
-  date: Date = new Date()
+  matchForm = new FormGroup({
+    winner: new FormControl('', [Validators.required]),
+    date: new FormControl(new Date())
+  })
 
   constructor(
     public dialogRef: MatDialogRef<AddMatchComponent>,
@@ -27,14 +29,17 @@ export class AddMatchComponent {
   }
 
   addMatch() {
-    this.db.list(`/games/${this.data.gameId}`).push(this.cookMatch())
+    if (this.matchForm.valid) {
+      this.db.list(`/games/${this.data.gameId}`).push(this.cookMatch())
+    }
   }
 
   cookMatch(): Match {
+    console.log(this.matchForm.value)
     return {
-      david: this.winner === 'david' ? true : false,
-      lyuba: this.winner === 'lyuba' ? true : false,
-      date: this.date.toLocaleDateString()
+      david: this.matchForm.value.winner === 'david' ? true : false,
+      lyuba: this.matchForm.value.winner === 'lyuba' ? true : false,
+      date: this.matchForm.value.date.toLocaleDateString()
     }
   }
 

@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 export interface Player {
   value: number;
@@ -17,6 +18,12 @@ export interface DialogData {
   styleUrls: ['./add-team.component.scss']
 })
 export class AddTeamComponent {
+
+  teamForm = new FormGroup({
+    NumbOfPlayers: new FormControl('2', [Validators.required]),
+    player_1: new FormControl('', [Validators.required]),
+    player_2: new FormControl('', [Validators.required])
+  })
 
   constructor(
     public dialogRef: MatDialogRef<AddTeamComponent>,
@@ -44,7 +51,12 @@ export class AddTeamComponent {
   }
 
   addTeam() {
-    console.log('awd')
+    console.log(this.teamForm.value)
+  }
+
+  onPlayersSelected(e) {
+    this.cookPlayers(e)
+    this.createFormGroup()
   }
 
   cookPlayers(e) {
@@ -57,11 +69,24 @@ export class AddTeamComponent {
     }
   }
 
-  setPlayer(e, player) {
-    const arr = []
-    arr.push({ player: e.target.value })
-    console.log(arr[arr.length - 1])
+
+  createFormGroup() {
+    if (this.players.length === 2) {
+      this.teamForm = new FormGroup({
+        NumbOfPlayers: new FormControl('2', [Validators.required]),
+        player_1: new FormControl('', [Validators.required]),
+        player_2: new FormControl('', [Validators.required])
+      })
+    } else if (this.players.length === 3) {
+      this.teamForm = new FormGroup({
+        NumbOfPlayers: new FormControl('3', [Validators.required]),
+        player_1: new FormControl('', [Validators.required]),
+        player_2: new FormControl('', [Validators.required]),
+        player_3: new FormControl('', [Validators.required])
+      })
+    }
   }
+
 
 
 }
